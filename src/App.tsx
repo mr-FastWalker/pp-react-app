@@ -1,15 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {useEffect} from "react";
+
+const tg = window.Telegram.WebApp;
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    tg.ready();
+  }, []);
+
+  const onClose = () => {
+    tg.close();
+  }
 
   return (
-    <>
-      pp app
-    </>
+    <p>
+      pp app 123
+      <button onClick={onClose}>закрыть</button>
+    </p>
   )
 }
 
